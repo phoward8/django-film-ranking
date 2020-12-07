@@ -1,0 +1,15 @@
+{% extends 'ranking/base.html' %}
+
+{% block content %}
+    <div class="reviews_phoebe">
+        {% for review in reviews_phoebe  %}
+            <h2><a href="{% url 'film' pk=film.pk %}"><!--title--></a></h2>
+        {% endfor %}
+    </div>
+    <div class="reviews_jon">
+        {% for review in reviews_jon  %}
+            <a href="{% url 'film' pk=film.pk %}">
+            <img src=<!--poster--> alt=<!--title-->>
+        {% endfor %}
+    </div>
+{% endblock %}
