@@ -1,1 +1,13 @@
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+<html>
+<body>
+<h1>
+This is the base html
+</h1>
+{% block content %}
+{% endblock %}
+</body>
+</html>
+
+{% load static %}
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery.js"></script>
+<script type="text/javascript" src={% static 'js/ranking.js' %}></script>

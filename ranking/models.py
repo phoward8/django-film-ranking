@@ -3,14 +3,14 @@ from django.conf import settings
 from django.utils import timezone
 
 class Film(models.Model):
-    IMDb_id = models.CharField(max_length=9)
+    IMDb_id = models.CharField(max_length=9, primary_key=True)
 
 class Review(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
     text = models.TextField()
     date = models.DateTimeField(default=timezone.now)
-    previous = models.OneToOneField('self', null=True, blank=True, related_name="next", on_delete=models.SET_NULL)
+    score = models.PositiveSmallIntegerField(default=0)
 
     def publish(self):
         self.date = timezone.now()

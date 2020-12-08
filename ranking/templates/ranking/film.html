@@ -1,13 +1,12 @@
-<script src='film.js'></script>
-
 {% extends 'ranking/base.html' %}
 {% block content %}
 
 <html>
     <body>
-        <!--Get name with API-->
-        {{ film.IMDB_id }}
-        <h1>(JavaScript goes here (maybe))<h1>
+        <div class='film' id={{ film.pk }}>
+            <h1 class='title'></h1>
+            <img class='poster'></img>
+        </div>
     <body>
 <html>
 

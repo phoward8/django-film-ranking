@@ -3,13 +3,16 @@
 {% block content %}
     <div class="reviews_phoebe">
         {% for review in reviews_phoebe  %}
-            <h2><a href="{% url 'film' pk=film.pk %}"><!--title--></a></h2>
+            <div class="film" id={{ review.film.pk }}>
+                <h2><a class='title'href="{% url 'film' pk=review.film.pk %}">Title Phoebe</a></h2>
+            </div>
         {% endfor %}
     </div>
     <div class="reviews_jon">
         {% for review in reviews_jon  %}
-            <a href="{% url 'film' pk=film.pk %}">
-            <img src=<!--poster--> alt=<!--title-->>
+            <div class="film" id={{ review.film.pk }}>
+                <h2><a class='title' href="{% url 'film' pk=review.film.pk %}">Title Jon</a></h2>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
