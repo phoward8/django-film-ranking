@@ -1,26 +1,47 @@
-$('div.film').each( function() {
-	var film = $(this);
+promises = new Map();
+
+$('div.film').each( async function() {
+
+    var film = $(this);
     var id = film.attr('id');
-    
-    var api_response = localStorage.getItem(id);
 
-    if (!api_response) {
-
-        var settings = {
-            "url": "https://imdb-api.com/en/API/Title/k_4075zegb/" + id,
-            "method": "GET",
-            "timeout": 0,
-        };
-
-        $.ajax(settings).done(function (response) {
-            api_response = response;
-            localStorage.setItem(id, JSON.stringify(response));
-        });
-    } else {
-        api_response = JSON.parse(api_response);
+    if (promises[id]) {
+        console.log('awaiting ' + id);
+        await promises[id];
     }
+
+    promises[id] = new Promise ( async (resolve, reject) => {
         
-    film.find('.title').text(api_response.title);
-    film.find('.poster').attr('src', api_response.image);
+        var api_response = localStorage.getItem(id);
+
+        if (!api_response) {
+
+            var settings = {
+                "url": "https://imdb-api.com/en/API/Title/k_4075zegb/" + id,
+                "method": "GET",
+                "timeout": 0,
+            };
+            
+            $.ajax(settings)
+            .done(function (data, textStatus, jqXHR) {
+                localStorage.setItem(id, JSON.stringify(data));
+                updateHtml(film, data);
+                resolve();
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                alert('API Failed to load for film ' + id +'. ' + errorThrown);
+                reject();
+            });
+            
+        } else {
+            updateHtml(film, JSON.parse(api_response));
+            resolve();
+        }
+    });
 
 });
+
+function updateHtml(film, response) {
+    film.find('.title').text(response.title);
+    film.find('.poster').attr('src', response.image);
+}
