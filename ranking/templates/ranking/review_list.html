@@ -1,18 +1,26 @@
 {% extends 'ranking/base.html' %}
 
 {% block content %}
-    <div class="reviews_phoebe">
-        {% for review in reviews_phoebe  %}
-            <div class="film" id={{ review.film.pk }}>
-                <h2><a class='title'href="{% url 'film' pk=review.film.pk %}">Title Phoebe</a></h2>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="reviews_jon">
-        {% for review in reviews_jon  %}
-            <div class="film" id={{ review.film.pk }}>
-                <h2><a class='title' href="{% url 'film' pk=review.film.pk %}">Title Jon</a></h2>
-            </div>
-        {% endfor %}
+    <div class='reviews'>
+        <div class='reviews_phoebe review_column'>
+            {% for review in reviews_phoebe  %}
+                <div class='film' id={{ review.film.pk }}>
+                    <h2><a class='title' href='{% url 'film' pk=review.film.pk %}'>Title Phoebe</a></h2>
+                    <a href='{% url 'film' pk=review.film.pk %}'>
+                    <img class='poster centre_image' style='width: 100%;'>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='reviews_jon review_column'>
+            {% for review in reviews_jon  %}
+                <div class='film' id={{ review.film.pk }}>
+                    <h2><a class='title' href='{% url 'film' pk=review.film.pk %}'>Title Jon</a></h2>
+                    <a href='{% url 'film' pk=review.film.pk %}'>
+                    <img class='poster centre_image' style='width: 100%;'>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

@@ -1,13 +1,14 @@
 {% extends 'ranking/base.html' %}
 {% block content %}
-
-<html>
-    <body>
-        <div class='film' id={{ film.pk }}>
-            <h1 class='title'></h1>
-            <img class='poster'></img>
+    <div class='film' id={{ film.pk }}>
+        <h1 class='title'>Getting data from IMDb...</h1>
+        <img class='poster centre_image' style='width: 70%;'></img>
+    </div>
+    {% for review in reviews %}
+        <div class='review'>
+            <p class='review_text'>{{ review.text|linebreaksbr }}</p>
+            <h3 class='review_author'>{{ review.author.username }}</h3>
+            <p class='publication_date'>{{ review.date }}</p>
         </div>
-    <body>
-<html>
-
+    {% endfor %}
 {% endblock %}

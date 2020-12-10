@@ -4,7 +4,8 @@ from .models import Film, Review
 
 def film(request, pk):
     film = get_object_or_404(Film, pk=pk)
-    return render(request, 'ranking/film.html', {'film': film})
+    reviews = Review.objects.filter(film=film).order_by('date')
+    return render(request, 'ranking/film.html', {'film': film, 'reviews': reviews})
 
 def review_list(request):
     User = get_user_model()

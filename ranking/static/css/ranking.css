@@ -1,0 +1,57 @@
+body {
+    background-color: #612940;
+    margin: 0;
+}
+
+.page_header {
+    background-color: #2F2504;
+    position: fixed;
+    top: 0;
+    padding: 15px 20px;
+    width: 100%;
+    text-decoration: none;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+}
+
+.page_content {
+    padding-top: 80px;
+    margin: 25px;
+}
+
+.page_title {
+    color: #8F857D;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.title {
+    color: #FFF8E7;
+}
+
+/* --- review list display --- */
+
+* {
+    box-sizing: border-box;
+}
+
+.reviews {
+    display: flex;
+}
+
+.review_column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.centre_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+/* ------ */

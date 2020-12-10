@@ -1,13 +1,20 @@
+{% load static %}
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ranking.css' %}"></link>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
 <body>
-<h1>
-This is the base html
-</h1>
-{% block content %}
-{% endblock %}
+    <div class="page_header">
+        <h1 class="page_title"><a class="page_title" href={% url 'review_list' %}>Jon and Phoebe's pog films list</a></h1>
+    </div>
+    <div class="page_content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
 
-{% load static %}
 <script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery.js"></script>
 <script type="text/javascript" src={% static 'js/ranking.js' %}></script>
