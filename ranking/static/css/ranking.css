@@ -1,10 +1,10 @@
 body {
-    background-color: #612940;
+    background-color: #D6D5C9;
     margin: 0;
 }
 
 .page_header {
-    background-color: #2F2504;
+    background-color: #216869;
     position: fixed;
     top: 0;
     padding: 15px 20px;
@@ -22,14 +22,30 @@ a:link, a:visited{
 }
 
 .page_title {
-    color: #8F857D;
+    color: #D6D5C9;
     font-family: 'Spartan', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 150%;
 }
 
 .title {
-    color: #FFF8E7;
+    color: #000000;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.review{
+    padding-left: 35%;
+    padding-right: 35%;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+}
+
+.review_author, .publication_date{
+    display: flex;
+    justify-content: right;
 }
 
 /* --- review list display --- */
