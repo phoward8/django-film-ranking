@@ -22,7 +22,7 @@ a:link, a:visited{
 }
 
 .page_title {
-    color: #D6D5C9;
+    color: #f6f6f6;
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
     font-size: 150%;
@@ -56,10 +56,10 @@ a:link, a:visited{
 
 .reviews {
     display: flex;
+    justify-content: space-between;
 }
 
 .review_column {
-    flex: 50%;
     padding: 10px;
 }
 
