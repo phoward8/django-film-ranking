@@ -4,9 +4,9 @@
     <div class='reviews'>
         <div class='reviews_phoebe review_column'>
             {% for review in reviews_phoebe  %}
-                <div class='film' id={{ review.film.pk }}>
-                    <h2><a class='title' href='{% url 'film' pk=review.film.pk %}'>Title Phoebe</a></h2>
-                    <a href='{% url 'film' pk=review.film.pk %}'>
+                <div class='film' id={{ review.film }}>
+                    <h2><a class='title' href='{% url 'film' film_id=review.film %}'>Title Phoebe</a></h2>
+                    <a href='{% url 'film' film_id=review.film %}'>
                     <img class='poster centre_image' style='width: 100%;'>
                     </a>
                 </div>
@@ -14,9 +14,9 @@
         </div>
         <div class='reviews_jon review_column'>
             {% for review in reviews_jon  %}
-                <div class='film' id={{ review.film.pk }}>
-                    <h2><a class='title' href='{% url 'film' pk=review.film.pk %}'>Title Jon</a></h2>
-                    <a href='{% url 'film' pk=review.film.pk %}'>
+                <div class='film' id={{ review.film }}>
+                    <h2><a class='title' href='{% url 'film' film_id=review.film %}'>Title Jon</a></h2>
+                    <a href='{% url 'film' film_id=review.film %}'>
                     <img class='poster centre_image' style='width: 100%;'>
                     </a>
                 </div>
