@@ -1,26 +1,20 @@
 {% extends 'ranking/base.html' %}
+{% load customtags %}
 
 {% block content %}
     <div class='reviews'>
-        <div class='reviews_phoebe review_column'>
-            {% for review in reviews_phoebe  %}
+        {% for user in users %}
+        <div class='review_column'>
+            {% getReviews user as review_list %}
+            {% for review in review_list %}
                 <div class='film' id={{ review.film }}>
-                    <h2><a class='title' href='{% url 'film' film_id=review.film %}'>Title Phoebe</a></h2>
-                    <a href='{% url 'film' film_id=review.film %}'>
+                    <h2><a class='title' href='{% url 'film' film=review.film %}'>Title</a></h2>
+                    <a href='{% url 'film' film=review.film %}'>
                     <img class='poster centre_image' style='width: 100%;'>
                     </a>
                 </div>
             {% endfor %}
         </div>
-        <div class='reviews_jon review_column'>
-            {% for review in reviews_jon  %}
-                <div class='film' id={{ review.film }}>
-                    <h2><a class='title' href='{% url 'film' film_id=review.film %}'>Title Jon</a></h2>
-                    <a href='{% url 'film' film_id=review.film %}'>
-                    <img class='poster centre_image' style='width: 100%;'>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
