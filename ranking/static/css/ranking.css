@@ -36,18 +36,6 @@ a:link, a:visited{
     justify-content: center;
 }
 
-.review{
-    padding-left: 35%;
-    padding-right: 35%;
-    font-family: 'Spartan', sans-serif;
-    font-weight: 400;
-}
-
-.review_author, .publication_date{
-    display: flex;
-    justify-content: right;
-}
-
 /* --- review list display --- */
 
 * {
@@ -61,6 +49,7 @@ a:link, a:visited{
 
 .review_column {
     padding: 10px;
+    width: 100%;
 }
 
 .centre_image {
@@ -69,5 +58,40 @@ a:link, a:visited{
     margin-right: auto;
     justify-content: center;
 }
+
+/* ------ */
+
+/* --- film page layout --- */
+
+.film_page_content { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.film_portion{
+    display: flex;
+    justify-content: right;
+    width: 65%;
+}
+
+.right_side_image{
+    width: 100%;
+}
+
+.info_reviews_portion{
+    width: 35%;
+    padding: 30px;
+}
+
+.review{
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+}
+
+.review_author, .publication_date{
+    display: flex;
+    justify-content: right;
+}
+
 
 /* ------ */
